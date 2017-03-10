@@ -273,7 +273,7 @@ class DateProcessor(TransformerMixin):
         return self
     
     def transform(self, dataset):
-        return dataset['created'].apply(self).iloc[:, [self.wantyear, self.wantmonth, self.wanthour]]
+        return dataset['created'].apply(self.process_date).iloc[:, [self.wantyear, self.wantmonth, self.wanthour]]
     
     def process_date(self, date):
         year = date[:4]
