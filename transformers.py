@@ -32,6 +32,13 @@ class VariableExtractor(TransformerMixin):
     
     def transform(self, dataset):
         return dataset[self.variables]
+       
+    def get_params(self, deep=True):
+        return {"variables": self.variables}
+        
+    def set_params(self, **params):
+        self.variables = params['variables']
+        return self
         
 class DimOneUp(TransformerMixin):
     '''Turn Series into array with 2 dimensions'''
